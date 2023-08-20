@@ -1,0 +1,16 @@
+<div *ngIf="url !== undefined">
+<h1>Url</h1>
+<h3>Short Address: 
+    <a [href]="url.shortAddress">
+        {{url.shortAddress}}
+    </a>
+</h3>
+<h3>Full Address: 
+    <a [href]="url.fullAddress">
+        {{url.fullAddress}}
+    </a>
+</h3>
+<h3>Description: {{url.description}}</h3>
+<h3>Created When: {{url.createdDate}}</h3>
+<h3>Created By: {{url.createdBy}}</h3>
+</div>

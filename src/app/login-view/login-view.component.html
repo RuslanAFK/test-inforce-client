@@ -1,0 +1,6 @@
+<h1 class="text-center my-3">Login</h1>
+<form class="mx-auto my-auto w-25" (submit)="onSubmit($event)">
+  <input name="Username" class="form-control" [formControl]="form.controls.username">
+  <input name="Password" type="password" class="form-control" [formControl]="form.controls.password">
+  <button class="btn btn-primary">Save</button>
+</form>

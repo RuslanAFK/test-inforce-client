@@ -1,0 +1,44 @@
+<div *ngIf="state.isAuthed()">
+    <h1 class="text-center my-3">Add New Url</h1>
+    <form class="mx-auto my-auto w-25" (submit)="onSubmit($event)">
+        <label>Address</label>
+      <input class="form-control" [formControl]="form.controls.fullAddress">
+      <label>Description</label>
+      <input class="form-control" [formControl]="form.controls.description">
+      <button class="btn btn-primary">Save</button>
+    </form>
+</div>
+
+
+<h1 class="text-center my-3">Short Urls Table</h1>
+<table className="w-100 table table-striped">
+    <thead>
+    <tr>
+        <th className="w-25">Full Url</th>
+        <th className="w-25">Short Url</th>
+        <th className="w-25">Details</th>
+        <th className="w-25">Remove?</th>
+    </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let url of urls">
+            <th className="w-25">
+                <a [href]="url.fullAddress" target="_blank">
+                    {{url.fullAddress}}
+                </a>
+            </th>
+            <th className="w-50">
+                <a [href]="url.shortAddress" target="_blank">
+                    {{url.shortAddress}}
+                </a>
+            </th>
+            <th className="w-25">
+                <button class="btn btn-secondary" (click)="redirectToDetails(url.id)" [disabled]="!state.isAuthed()">See</button>
+            </th>
+            <th className="w-25">
+                <button class="btn btn-secondary" (click)="deleteUrl(url.id)" [disabled]="!state.isAuthed()">Remove</button>
+            </th>
+            </tr>
+    </tbody>
+</table>
